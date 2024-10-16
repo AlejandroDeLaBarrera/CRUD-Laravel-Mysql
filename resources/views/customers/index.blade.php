@@ -5,7 +5,8 @@
 <div class="container">
     <h1>Lista de Customers</h1>
     <a href="{{ route('customers.create') }}" class="btn btn-primary mb-3">Crear Nuevo Customer</a>
-    <a href="{{ route('customers.pdf') }}" class="btn btn-primary mb-3">Descargar PDF</a>
+    <a href="{{ route('customers.pdf') }}" class="btn btn-primary mb-3">Descargar PDF</a><br>
+    <a href="{{ route('customers.export.csv') }}" class="btn btn-primary">Exportar Clientes a CSV</a>
     {{-- <a href="{{ route('customers.pdf') }}"class="btn btn-primary mb-3">Descargar PDF de Customers</a> --}}
 
 

@@ -47,3 +47,9 @@ Route::get('hobbies/{id}/customers', function($id) {
 });
 
 // require __DIR__.'/auth.php';
+
+//Ruta para actualizar los hobbies desde la API
+Route::get('customers/update-hobbies/{userId}', [CustomerController::class, 'updateHobbiesFromApi']);
+
+//CSV
+Route::get('/customers/export-csv', [CustomerController::class, 'exportToCsv'])->name('customers.export.csv');
