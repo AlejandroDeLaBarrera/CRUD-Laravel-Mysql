@@ -11,6 +11,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+//CSV
+Route::get('/customers/export-csv', [CustomerController::class, 'exportToCsv'])->name('customers.export-csv');
+//PDF
+Route::get('/customers/pdf', [CustomerController::class, 'generatePDF'])->name('customers.pdf');
 //Login
 Route::get('login', [LoginController::class, 'showLoginForm'])->name('login');
 Route::post('login', [LoginController::class, 'login']);
@@ -32,9 +36,9 @@ Route::middleware(['auth', 'admin'])->group(function () {
 
 });
 
-Route::get('/customers/pdf', [CustomerController::class, 'generatePDF'])->name('customers.pdf');
+
 // Route::get('customers/{id}/pdf', [CustomerController::class, 'downloadPDF'])->name('customers.downloadPDF');
-Route::get('customers/pdf', [CustomerController::class, 'downloadPDF'])->name('customers.pdf');
+//Route::get('customers/pdf', [CustomerController::class, 'downloadPDF'])->name('customers.pdf');
 
 
 // Endpoint que devuelve los nombres de los customers relacionados con un hobbie
@@ -51,5 +55,4 @@ Route::get('hobbies/{id}/customers', function($id) {
 //Ruta para actualizar los hobbies desde la API
 Route::get('customers/update-hobbies/{userId}', [CustomerController::class, 'updateHobbiesFromApi']);
 
-//CSV
-Route::get('/customers/export-csv', [CustomerController::class, 'exportToCsv'])->name('customers.export.csv');
+

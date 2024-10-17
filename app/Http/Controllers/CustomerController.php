@@ -7,6 +7,7 @@ use App\Models\Hobbie;
 use Illuminate\Http\Request;
 use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Support\Facades\Http;
+use Maatwebsite\Excel\Facades\Excel;
 use Symfony\Component\HttpFoundation\StreamedResponse;  //con Http en lugar de Guzzle es más simple
 // use PDF;
 // use Barryvdh\DomPDF\Facade as PDF;
@@ -318,6 +319,7 @@ class CustomerController extends Controller
 
         // return new StreamedResponse($callback, 200, $headers);
         return new \Symfony\Component\HttpFoundation\StreamedResponse($callback, 200, $headers);
+        //return Excel::download($headers, 'customers_hobbies.csv');
     }
 
 
